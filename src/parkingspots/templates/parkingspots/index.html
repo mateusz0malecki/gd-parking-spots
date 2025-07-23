@@ -1,0 +1,26 @@
+{% extends 'parkingspots/base.html' %}
+
+{% block title %}Gdańsk Parking Lots{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br>
+    {% for parking_lot in parking_lots %}
+        {% if forloop.counter0|divisibleby:3 %}
+            <div class="row mb-3 gy-3">
+                {% endif %}
+                <div class="col-md-4">
+                    <div class="card h-100" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ parking_lot.parking_name }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Last update: {{ parking_lot.last_updated }}</h6>
+                            <p class="card-text">Available spots: {{ parking_lot.available_spots }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 or forloop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

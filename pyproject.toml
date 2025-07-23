@@ -1,0 +1,14 @@
+[project]
+name = "gd-parking-spots"
+version = "0.1.0"
+description = "A Python package for managing parking spots in city of Gdańsk"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.12.14",
+    "crispy-bootstrap5>=2025.6",
+    "django>=5.2.4",
+    "python-dotenv>=1.1.1",
+    "starlette>=0.47.2",
+    "uvicorn>=0.35.0",
+]
