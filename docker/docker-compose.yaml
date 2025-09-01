@@ -1,0 +1,17 @@
+services:
+
+  parkingspots:
+    container_name: parkingspots
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+      args:
+        - DEV=true
+    tty: True
+    volumes:
+      - ../src/:/code/src/
+      - ../pyproject.toml:/code/pyproject.toml
+    ports:
+      - "8000:8000"
+    command: >
+      uvicorn src.asgi:app --reload --host 0.0.0.0 --port 8000
